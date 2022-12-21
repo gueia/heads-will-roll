@@ -9,13 +9,14 @@
 #
 #
 #
+#
 # For all kind of problems, requests of enhancements and bug reports,
 # please write to me at:
 #
 # offbeatpersona@gmail.com
 #
 #
-# 
+#
 #
 # End Of Comments
 # --------------------------------------------------------------------------------- #
@@ -49,8 +50,8 @@ import platform
 
 class HeadtextChanger:
     def __init__(self):
-        self.identifier = None
-        self.password = None
+        # self.identifier = None
+        # self.password = None
         self.headtextNum_init = None
         self.headtextNum_final = None
         self.headtext_visible_init = None
@@ -64,8 +65,8 @@ class HeadtextChanger:
 
         options = Options()
         options.add_experimental_option("detach", True)
-        options.add_argument("headless")
-        # options.add_extension("./uBOLite_0.1.22.12166.mv3.zip") # headless와 extension은 양립 불가
+        # options.add_argument("headless")
+        options.add_extension("./uBOLite_0.1.22.12166.mv3.zip")  # headless와 extension은 양립 불가
         options.add_argument(
             'user-agent='
             'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) '
@@ -133,10 +134,6 @@ class HeadtextChanger:
         pyperclip.copy(self.identifier)  # 캡챠 뜨는 경우 붙여넣기
         if platform.system() == 'Darwin':
             elm_id.send_keys(Keys.COMMAND, 'v')
-        elif platform.system() == 'Windows':
-            elm_id.send_keys(Keys.CONTROL, 'v')
-        elif platform.system() == 'Linux':
-            elm_id.send_keys(Keys.CONTROL, 'v')
         else:
             elm_id.send_keys(Keys.CONTROL, 'v')
         # elm_id.send_keys(self.identifier)
@@ -147,10 +144,6 @@ class HeadtextChanger:
         pyperclip.copy(self.password)
         if platform.system() == 'Darwin':
             elm_id.send_keys(Keys.COMMAND, 'v')
-        elif platform.system() == 'Windows':
-            elm_id.send_keys(Keys.CONTROL, 'v')
-        elif platform.system() == 'Linux':
-            elm_id.send_keys(Keys.CONTROL, 'v')
         else:
             elm_id.send_keys(Keys.CONTROL, 'v')
         # elm_pw.send_keys(self.password)
@@ -176,28 +169,26 @@ class HeadtextChanger:
                         "?r_url=https%3A%2F%2Fgall.dcinside.com%2Fmgallery%2Fboard%2Flists%3Fid%3Dpostrockgallery")
         elm_id = self.driver.find_element(By.XPATH, '//*[@id="code"]')
         elm_id.click()
+        '''
+        pyperclip.copy(self.identifier)
         if platform.system() == 'Darwin':
             elm_id.send_keys(Keys.COMMAND, 'v')
-        elif platform.system() == 'Windows':
-            elm_id.send_keys(Keys.CONTROL, 'v')
-        elif platform.system() == 'Linux':
-            elm_id.send_keys(Keys.CONTROL, 'v')
         else:
             elm_id.send_keys(Keys.CONTROL, 'v')
-        # elm_id.send_keys(self.identifier)
+        '''
+        elm_id.send_keys(self.identifier)
         time.sleep(1)
 
         elm_pw = self.driver.find_element(By.XPATH, '//*[@id="password"]')
         elm_pw.click()
+        '''
+        pyperclip.copy(self.password)
         if platform.system() == 'Darwin':
             elm_id.send_keys(Keys.COMMAND, 'v')
-        elif platform.system() == 'Windows':
-            elm_id.send_keys(Keys.CONTROL, 'v')
-        elif platform.system() == 'Linux':
-            elm_id.send_keys(Keys.CONTROL, 'v')
         else:
             elm_id.send_keys(Keys.CONTROL, 'v')
-        # elm_pw.send_keys(self.password)
+        '''
+        elm_pw.send_keys(self.password)
         time.sleep(1)
 
         self.driver.find_element(By.XPATH, '//*[@id="loginAction"]').click()
@@ -322,15 +313,14 @@ def chromedriver_update():
 
 
 if __name__ == '__main__':
-    chromedriver_update()
-    hc = HeadtextChanger()
-
     user_id = input('ID: ')
     user_pw = input('PASSWORD: ')
-    hc.login(user_id, user_pw)
-
     user_ht_init = input("현재 이동할 글이 존재하는 말머리를 다음 중 선택하세요. (소식, 자작, 인증, 음추, 번역, 후기, 탑스터)\n입력: ")
     user_ht_final = input("글을 이동할 목표 말머리를 다음 중 선택하세요. (소식, 자작, 인증, 음추, 번역, 후기, 탑스터)\n입력: ")
+
+    chromedriver_update()
+    hc = HeadtextChanger()
+    hc.login(user_id, user_pw)
     hc.setdata(user_ht_init, user_ht_final)
 
     hc.run()
