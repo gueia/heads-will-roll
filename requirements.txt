@@ -6,6 +6,7 @@ exceptiongroup==1.0.4
 h11==0.14.0
 idna==3.4
 outcome==1.2.0
+pyfiglet==0.8.post1
 pyperclip==1.8.2
 PySocks==1.7.1
 selenium==4.7.2
