@@ -74,6 +74,7 @@ class HeadtextChanger:
         self.logger.setLevel(level=logging.INFO)
         self.logger.addHandler(logging.StreamHandler())
         self.logger.addHandler(logging.FileHandler('./test.log'))
+        self.logger.propagate = False
 
         options = Options()
         options.add_experimental_option("detach", True)
