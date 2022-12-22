@@ -6,18 +6,37 @@
 # Latest Revision: December 21, 2022 (17:54 GMT)
 #
 #
+#ooooo   ooooo                           .o8
+#`888'   `888'                          "888
+# 888     888   .ooooo.   .oooo.    .oooo888   .oooo.o
+# 888ooooo888  d88' `88b `P  )88b  d88' `888  d88(  "8
+# 888     888  888ooo888  .oP"888  888   888  `"Y88b.
+# 888     888  888    .o d8(  888  888   888  o.  )88b
+#o888o   o888o `Y8bod8P' `Y888""8o `Y8bod88P" 8""888P'
 #
 #
+#oooooo   oooooo     oooo  o8o  oooo  oooo
+# `888.    `888.     .8'   `"'  `888  `888
+#  `888.   .8888.   .8'   oooo   888   888
+#   `888  .8'`888. .8'    `888   888   888
+#    `888.8'  `888.8'      888   888   888
+#     `888'    `888'       888   888   888
+#      `8'      `8'       o888o o888o o888o
 #
+#
+#ooooooooo.             oooo  oooo
+#`888   `Y88.           `888  `888
+# 888   .d88'  .ooooo.   888   888
+# 888ooo88P'  d88' `88b  888   888
+# 888`88b.    888   888  888   888
+# 888  `88b.  888   888  888   888  .o.
+#o888o  o888o `Y8bod8P' o888o o888o Y8P
 #
 #
 # For all kind of problems, requests of enhancements and bug reports,
 # please write to me at:
 #
 # offbeatpersona@gmail.com
-#
-#
-#
 #
 # End Of Comments
 # --------------------------------------------------------------------------------- #
