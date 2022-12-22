@@ -1,7 +1,7 @@
-# Heads Will Roll: 디시인사이드 말머리 이동 자동화 프로그램
+# Heads Will Roll: 포스트락 마이너 갤러리 말머리 복구 프로그램
 ![greetings](https://github.com/github/docs/actions/workflows/greetings.yml/badge.svg)
 
-Heads Will Roll은 본래 디시인사이드 말머리 이동을 자동적으로 수행하는 것이 목적인 프로그램이지만, 현재 포스트락 마이너 갤러리 말머리의 복구 기능만 작동하도록 수정한 상태입니다.
+Heads Will Roll은 디시인사이드 말머리 이동을 자동적으로 수행하는 것이 본래 목적인 프로그램이지만, 현재 포스트락 마이너 갤러리 말머리의 복구 기능만 작동하도록 수정한 상태입니다.
 
 ## 시작하기
 ### 설치
