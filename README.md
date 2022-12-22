@@ -24,7 +24,7 @@ Heads Will Roll은 디시인사이드 말머리 이동을 자동화해주는 프
 ~/heads-will-roll$ ./main.py
 ```
 
-> __Note__
+***
 > 예시
 ```
 GALLERYID: postrockgallery
