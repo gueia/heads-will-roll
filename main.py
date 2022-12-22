@@ -94,14 +94,24 @@ class HeadtextChanger:
         self.action = ActionChains(self.driver)
         self.count = 0
 
-        self.makelist_headtext()
-        print("다음 중 현재 이동할 글이 존재하는 말머리의 이름을 입력하세요.")
-        print(*['소식', '자작', '인증', '음추', '번역', '후기', '탑스터'], sep='\n')
-        # print(*enumerate(self.headtext_list), sep='\n')
+        # 말머리 복구
+        print("다음 중 복구할 말머리의 번호를 선택하세요.")
+        print(*enumerate(['NaN', 'NaN', '소식', 'NaN', '인증', '음추', '번역', '후기', '탑스터', '자작', 'NaN']), sep='\n')
         self.selectedNo_init = input("입력: ")
+        self.selectedNo_final = self.selectedNo_init
+
+        self.makelist_headtext()
+
+        # 말머리 이동
+        '''
+        print("다음 중 현재 이동할 글이 존재하는 말머리의 번호를 선택하세요.")
+        print(*enumerate(self.headtext_list), sep='\n')
+        self.selectedNo_init = input("입력: ")
+
         print("다음 중 글을 이동할 목표 말머리의 번호를 선택하세요.")
         print(*enumerate(self.headtext_list), sep='\n')
         self.selectedNo_final = int(input("입력: "))
+        '''
 
         # 응답이 범위 내인지 확인 추가 필요
 
@@ -148,20 +158,20 @@ class HeadtextChanger:
 
     def setdata(self, selectedNo_init, selectedNo_final):  # 말머리를 말머리 ID로
         # 원래 말머리
-        if selectedNo_init == '소식':
-            self.headtextid_init = '130'
-        elif selectedNo_init == '자작':
-            self.headtextid_init = '140'
-        elif selectedNo_init == '인증':
-            self.headtextid_init = '100'
-        elif selectedNo_init == '음추':
-            self.headtextid_init = '40'
-        elif selectedNo_init == '번역':
-            self.headtextid_init = '110'
-        elif selectedNo_init == '후기':
-            self.headtextid_init = '120'
-        elif selectedNo_init == '탑스터':
-            self.headtextid_init = '90'
+        if selectedNo_init == '2':
+            self.headtextid_init = '130'    # 소식
+        elif selectedNo_init == '4':
+            self.headtextid_init = '100'    # ㅔ인증
+        elif selectedNo_init == '5':
+            self.headtextid_init = '40'     # 음추
+        elif selectedNo_init == '6':
+            self.headtextid_init = '110'    # 번역
+        elif selectedNo_init == '7':
+            self.headtextid_init = '120'    # 후기
+        elif selectedNo_init == '8':
+            self.headtextid_init = '90'     # 탑스터
+        elif selectedNo_init == '9':
+            self.headtextid_init = '140'    # 자작
         else:
             print('지원하지 않는 말머리 형식입니다.')
             raise
