@@ -58,7 +58,7 @@ from pyfiglet import Figlet
 class HeadtextChanger:
     def __init__(self):
         f = Figlet(font='roman')
-        print('\n'+f.renderText('Heads Will Roll')+'\n')
+        print('\n'+f.renderText('Heads Will Roll.')+'\n')
 
         chromedriver_update()
 
