@@ -7,11 +7,14 @@ Heads Will Roll은 본래 디시인사이드 말머리 이동을 자동적으로
 > __Note__
 > 
 > 운영체제가 macOS 또는 Linux인 경우 pip 대신 pip3를 실행하세요.
+
 ```
 ~$ git clone https://github.com/gueia/heads-will-roll.git
 ~$ cd heads-will-roll
 ~/heads-will-roll$ pip install -r requirements.txt
 ```
+
+터미널에 상단의 명령어를 순서대로 입력합니다.
 
 ## 사용 방법
 > __Warning__
@@ -29,6 +32,10 @@ Heads Will Roll은 본래 디시인사이드 말머리 이동을 자동적으로
 ```
 ~/heads-will-roll$ python main.py
 ```
+
+처음 실행하는 경우 ChromeDriver를 설치하는 과정이 필요하기 때문에 시간이 소요될 수 있습니다.
+
+마이너 갤러리 아이디를 입력하고 말머리를 목록에서 선택한 뒤 로그인하면 됩니다.
 
 ***
 > 입력 예시
