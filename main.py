@@ -125,7 +125,17 @@ class HeadtextChanger:
         if p == '-r':
             self.galleryid = "postrockgallery"
             self.galleryurl = "https://gall.dcinside.com/mgallery/board/lists?id=" + self.galleryid
-            self.recoverylist = ['NaN', 'NaN', '소식', 'NaN', '인증', '음추', '번역', '후기', '탑스터', '자작', 'NaN']
+            self.recoverylist = ['NaN',
+                                 'NaN',
+                                 '🔔소식',
+                                 'NaN',
+                                 '💿인증',
+                                 '🎵음추',
+                                 '🌐번역',
+                                 '📖후기',
+                                 '🍀탑스터',
+                                 '🎸자작',
+                                 'NaN']
             print("다음 중 복구할 말머리의 번호를 선택하세요.")
             print(*enumerate(self.recoverylist), sep='\n')
             self.selectedNo_init = int(input("입력: "))
