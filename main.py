@@ -56,7 +56,7 @@ from pyfiglet import Figlet
 
 class HeadtextChanger:
     def __init__(self):
-        f = Figlet(font='lean')
+        f = Figlet(font='roman')
         print(f.renderText('Heads Will Roll'))
 
         self.post_list = []
