@@ -6,6 +6,12 @@ Heads Will Roll은 디시인사이드 말머리 이동을 자동화해주는 프
 ## 주의 사항
 > __Warning__
 
+사용한 계정에서 간혹 영원히 PC 환경에서 로그인할 수 없는 오류(ERR_300016)가 발생합니다.
+
+따라서 반드시 부계정으로 로그인하길 바랍니다.
+
+참고로 이미 ERR_300016가 발생하는 경우에는 모바일 환경(m.dcinside.com)에서 로그인한 뒤 PC 버전으로 전환하는 방법으로 로그인 가능합니다.
+
 ## 설치
 ```
 ~$ git clone https://github.com/gueia/heads-will-roll.git
