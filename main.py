@@ -95,15 +95,22 @@ class HeadtextChanger:
         self.count = 0
 
         # 말머리 복구
+        self.recoverylist = ['NaN', 'NaN', '소식', 'NaN', '인증', '음추', '번역', '후기', '탑스터', '자작', 'NaN']
         print("다음 중 복구할 말머리의 번호를 선택하세요.")
-        print(*enumerate(['NaN', 'NaN', '소식', 'NaN', '인증', '음추', '번역', '후기', '탑스터', '자작', 'NaN']), sep='\n')
+        print(*enumerate(self.recoverylist), sep='\n')
         self.selectedNo_init = int(input("입력: "))
         self.selectedNo_final = self.selectedNo_init
-
-        self.makelist_headtext()
+        self.headtext_init = self.recoverylist[self.selectedNo_init]
+        self.headtext_final = self.recoverylist[self.selectedNo_final]
 
         # 말머리 이동
         '''
+        self.makelist_headtext()
+        self.headtext_init = self.headtext_list[self.selectedNo_init]
+        self.headtextid_init = self.headtextid_list[self.selectedNo_init]
+        self.headtext_final = self.headtext_list[self.selectedNo_final]
+        self.headtextid_final = self.headtextid_list[self.selectedNo_final]
+        
         print("다음 중 현재 이동할 글이 존재하는 말머리의 번호를 선택하세요.")
         print(*enumerate(self.headtext_list), sep='\n')
         self.selectedNo_init = int(input("입력: "))
@@ -158,27 +165,23 @@ class HeadtextChanger:
 
     def setdata(self, selectedNo_init, selectedNo_final):  # 말머리를 말머리 ID로
         # 원래 말머리
-        if selectedNo_init == '2':
+        if selectedNo_init == 2:
             self.headtextid_init = '130'    # 소식
-        elif selectedNo_init == '4':
-            self.headtextid_init = '100'    # ㅔ인증
-        elif selectedNo_init == '5':
+        elif selectedNo_init == 4:
+            self.headtextid_init = '100'    # 인증
+        elif selectedNo_init == 5:
             self.headtextid_init = '40'     # 음추
-        elif selectedNo_init == '6':
+        elif selectedNo_init == 6:
             self.headtextid_init = '110'    # 번역
-        elif selectedNo_init == '7':
+        elif selectedNo_init == 7:
             self.headtextid_init = '120'    # 후기
-        elif selectedNo_init == '8':
+        elif selectedNo_init == 8:
             self.headtextid_init = '90'     # 탑스터
-        elif selectedNo_init == '9':
+        elif selectedNo_init == 9:
             self.headtextid_init = '140'    # 자작
         else:
             print('지원하지 않는 말머리 형식입니다.')
             raise
-
-        # 목표 말머리
-        self.headtext_final = self.headtext_list[selectedNo_final]
-        self.headtextid_final = self.headtextid_list[selectedNo_final]
 
     def login_pc(self, identifier, password):  # PC 환경에서 로그인 시도
         self.driver.get("https://sign.dcinside.com/login"
