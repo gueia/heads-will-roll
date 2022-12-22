@@ -34,7 +34,7 @@ Heads Will Roll은 디시인사이드 말머리 이동을 자동적으로 수행
 > __Note__
 > 
 > 운영체제가 macOS 또는 Linux인 경우 python 대신 python3를 실행하세요.
-
+### 말머리 이동
 ```
 ~/heads-will-roll$ python main.py -m
 ```
