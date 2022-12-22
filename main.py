@@ -127,7 +127,11 @@ class HeadtextChanger:
             # print(self.post_list)
             try:
                 for postNum in self.post_list:
-                    self.run(postNum)
+                    try:
+                        self.run(postNum)
+                    except UnexpectedAlertPresentException:
+                        print("디시인사이드 시스템 오류로 작업이 중지되었습니다. 잠시 후 다시 이용해 주세요.")
+                        pass
                 # multi pool = Pool(processes=2)
                 # multi pool = ProcessPool(nodes=2)
                 # multi pool.map(self.run, self.post_list)
@@ -308,7 +312,7 @@ class HeadtextChanger:
             print("관리 권한이 없습니다.")
             raise
         except UnexpectedAlertPresentException:
-            print("디시인사이드 서버 오류")
+            print("디시인사이드 시스템 오류로 작업이 중지되었습니다. 잠시 후 다시 이용해 주세요.")
             pass
 
         self.driver.find_element(By.XPATH, f"//li[@data-value='{self.headtextid_final}']").click()
