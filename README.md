@@ -15,7 +15,9 @@ pip install -r requirements.txt
 ```
 
 ## 사용 방법
-
+```
+./main.py
+```
 
 ## 프로젝트 역사
 #### v0.0.1 (2022-12-21)
