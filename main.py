@@ -54,10 +54,13 @@ import platform
 import getpass
 from pyfiglet import Figlet
 
+
 class HeadtextChanger:
     def __init__(self):
         f = Figlet(font='roman')
         print(f.renderText('Heads Will Roll'))
+
+        chromedriver_update()
 
         self.post_list = []
         self.headtext_dict = OrderedDict()
@@ -372,5 +375,4 @@ def chromedriver_update():
 
 
 if __name__ == '__main__':
-    chromedriver_update()
     HeadtextChanger()
