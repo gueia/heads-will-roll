@@ -46,7 +46,8 @@ from selenium.common.exceptions import (
     ElementNotVisibleException,
     UnexpectedAlertPresentException,
     NoSuchWindowException,
-    TimeoutException
+    TimeoutException,
+    ElementNotInteractableException
 )
 import platform
 import getpass
@@ -74,12 +75,13 @@ class HeadtextChanger:
 
         options = Options()
         options.add_experimental_option("detach", True)
-        # options.add_argument("headless")
+        options.add_argument("headless")
+
         options.add_extension("./uBOLite_0.1.22.12166.mv3.zip")  # headless와 extension은 양립 불가
-        options.add_argument('user-agent='
-                             'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) '
-                             'AppleWebKit/537.36 (KHTML, like Gecko) '
-                             'Chrome/108.0.0.0 Safari/537.36')
+        # options.add_argument('user-agent='
+        #                     'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) '
+        #                     'AppleWebKit/537.36 (KHTML, like Gecko) '
+        #                     'Chrome/108.0.0.0 Safari/537.36')
 
         caps = DesiredCapabilities().CHROME
         caps["pageLoadStrategy"] = "none"
@@ -133,11 +135,11 @@ class HeadtextChanger:
                 # multi pool.close()
                 # multi pool.join()
                 self.driver.quit()
-                self.logger.info(
+                self.logger.info("| "
                     f"{time.strftime('%Y-%m-%d %H:%M:%S')} "
                     f"| quit "
                     f"| DONE "
-                    f"| * "
+                    f"| * |"
                 )
                 break
 
@@ -161,26 +163,7 @@ class HeadtextChanger:
             print('지원하지 않는 말머리 형식입니다.')
             raise
 
-        '''
         # 목표 말머리
-        if selectedNo_final == '소식':
-            self.headtextid_final = '230'
-        elif selectedNo_final == '자작':
-            self.headtextid_final = '190'
-        elif selectedNo_final == '인증':
-            self.headtextid_final = '170'
-        elif selectedNo_final == '음추':
-            self.headtextid_final = '200'
-        elif selectedNo_final == '번역':
-            self.headtextid_final = '210'
-        elif selectedNo_final == '후기':
-            self.headtextid_final = '220'
-        elif selectedNo_final == '탑스터':
-            self.headtextid_final = '180'
-        else:
-            print('지원하지 않는 말머리 형식입니다.')
-            raise
-        '''  # old
         self.headtext_final = self.headtext_list[selectedNo_final]
         self.headtextid_final = self.headtextid_list[selectedNo_final]
 
@@ -211,11 +194,11 @@ class HeadtextChanger:
         self.driver.find_element(
             By.XPATH, '//*[@id="container"]/div/article/section/div/div[1]/div/form/fieldset/button').click()
         '''
-        self.logger.info(
+        self.logger.info("| "
             f"{time.strftime('%Y-%m-%d %H:%M:%S')} "
             f"| login (pc) "
             f"| DONE "
-            f"| * "
+            f"| * |"
         )
         '''
         # self.popupclose_cert()
@@ -253,18 +236,20 @@ class HeadtextChanger:
         # self.wait.until(EC.url_to_be(self.galleryurl))
 
         if self.driver.current_url == self.galleryurl:  # 로그인 성공
-            self.logger.info(f"{time.strftime('%Y-%m-%d %H:%M:%S')} "
+            self.logger.info("| "
+                             f"{time.strftime('%Y-%m-%d %H:%M:%S')} "
                              "| login (mobile) "
                              "| DONE "
-                             "| * ")
+                             "| * |")
             pass
         else:
             print(self.driver.current_url)
             print(self.galleryurl)
-            self.logger.info(f"{time.strftime('%Y-%m-%d %H:%M:%S')} "
+            self.logger.info("| "
+                             f"{time.strftime('%Y-%m-%d %H:%M:%S')} "
                              "| login (mobile) "
                              "| ERROR "
-                             "| * ")
+                             "| * |")
             raise
 
         # self.popupclose_cert()
@@ -334,13 +319,13 @@ class HeadtextChanger:
         alert.accept()
 
         self.count += 1
-        self.logger.info(
-            f"{time.strftime('%Y-%m-%d %H:%M:%S')} "
-            f"| https://gall.dcinside.com/m/postrockgallery/{post_num}"
-            f" ({self.selectedNo_init} -> {self.headtext_final}) "
-            # f" ({self.headtext_init} -> {self.headtext_final}) "
-            f"| DONE "
-            f"| {self.count}"
+        self.logger.info("| "
+                         f"{time.strftime('%Y-%m-%d %H:%M:%S')} "
+                         f"| https://gall.dcinside.com/m/postrockgallery/{post_num}"
+                         f" ({self.selectedNo_init} -> {self.headtext_final}) "
+                         # f" ({self.headtext_init} -> {self.headtext_final}) "
+                         f"| DONE "
+                         f"| {self.count} |"
         )
         time.sleep(0.5)
 
@@ -368,4 +353,3 @@ def chromedriver_update():
 if __name__ == '__main__':
     chromedriver_update()
     hc = HeadtextChanger()
-    hc
