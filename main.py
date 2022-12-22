@@ -103,8 +103,8 @@ class HeadtextChanger:
 
         options = Options()
         options.add_experimental_option("detach", True)
-        #options.add_argument("headless")
-        options.add_extension("./uBOLite_0.1.22.12166.mv3.zip")  # headless와 extension은 양립 불가
+        options.add_argument("headless")
+        # options.add_extension("./uBOLite_0.1.22.12166.mv3.zip")  # headless와 extension은 양립 불가
 
         options.add_argument('user-agent='
                              'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) '
