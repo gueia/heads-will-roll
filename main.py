@@ -73,7 +73,7 @@ class HeadtextChanger:
         self.logger = logging.getLogger()
         self.logger.setLevel(level=logging.INFO)
         self.logger.addHandler(logging.StreamHandler())
-        self.logger.addHandler(logging.FileHandler('./test.log'))
+        # self.logger.addHandler(logging.FileHandler('./test.log'))
         self.logger.propagate = False
 
         options = Options()
