@@ -1,6 +1,8 @@
 # Heads Will Roll: 디시인사이드 말머리 이동 자동화 프로그램
 Heads Will Roll은 디시인사이드 말머리 이동을 자동화해주는 프로그램입니다. 현재 포스트락 마이너 갤러리에서만 작동합니다.
 
+## 주의 사항
+
 ## 설치
 ```
 git clone https://github.com/gueia/heads-will-roll.git
