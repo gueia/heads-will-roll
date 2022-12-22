@@ -76,8 +76,8 @@ class HeadtextChanger:
 
         options = Options()
         options.add_experimental_option("detach", True)
-        options.add_argument("headless")
-        # options.add_extension("./uBOLite_0.1.22.12166.mv3.zip")  # headless와 extension은 양립 불가
+        # options.add_argument("headless")
+        options.add_extension("./uBOLite_0.1.22.12166.mv3.zip")  # headless와 extension은 양립 불가
 
         options.add_argument('user-agent='
                              'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) '
@@ -97,7 +97,7 @@ class HeadtextChanger:
         # 말머리 복구
         print("다음 중 복구할 말머리의 번호를 선택하세요.")
         print(*enumerate(['NaN', 'NaN', '소식', 'NaN', '인증', '음추', '번역', '후기', '탑스터', '자작', 'NaN']), sep='\n')
-        self.selectedNo_init = input("입력: ")
+        self.selectedNo_init = int(input("입력: "))
         self.selectedNo_final = self.selectedNo_init
 
         self.makelist_headtext()
@@ -106,7 +106,7 @@ class HeadtextChanger:
         '''
         print("다음 중 현재 이동할 글이 존재하는 말머리의 번호를 선택하세요.")
         print(*enumerate(self.headtext_list), sep='\n')
-        self.selectedNo_init = input("입력: ")
+        self.selectedNo_init = int(input("입력: "))
 
         print("다음 중 글을 이동할 목표 말머리의 번호를 선택하세요.")
         print(*enumerate(self.headtext_list), sep='\n')
