@@ -7,7 +7,7 @@ Heads Will Roll은 본래 디시인사이드 말머리 이동을 자동적으로
 ```
 ~$ git clone https://github.com/gueia/heads-will-roll.git
 ~$ cd heads-will-roll
-~/heads-will-roll$ pip install -r requirements.txt
+~/heads-will-roll$ pip3 install -r requirements.txt
 ```
 
 ## 사용 방법
@@ -19,7 +19,7 @@ Heads Will Roll은 본래 디시인사이드 말머리 이동을 자동적으로
 > 
 > 참고로 계정 이미 ERR_300016가 발생하는 경우에는 모바일 환경(m.dcinside.com)에서 로그인한 뒤 PC 버전으로 전환하는 방법으로 우회해서 로그인 가능합니다.
 ```
-~/heads-will-roll$ ./main.py
+~/heads-will-roll$ python3 main.py
 ```
 
 ***
