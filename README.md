@@ -1,7 +1,7 @@
-# Heads Will Roll: 포스트락 마이너 갤러리 말머리 복구 프로그램
+# Heads Will Roll: 디시인사이드 말머리 이동 자동화 프로그램
 ![greetings](https://github.com/github/docs/actions/workflows/greetings.yml/badge.svg)
 
-Heads Will Roll은 디시인사이드 말머리 이동을 자동적으로 수행하는 것이 본래 목적인 프로그램이지만, 현재 포스트락 마이너 갤러리 말머리의 복구 기능만 작동하도록 수정한 상태입니다.
+Heads Will Roll은 디시인사이드 말머리 이동을 자동적으로 수행하는 프로그램입니다.
 
 ## 시작하기
 ### 설치
@@ -36,7 +36,7 @@ Heads Will Roll은 디시인사이드 말머리 이동을 자동적으로 수행
 > 운영체제가 macOS 또는 Linux인 경우 python 대신 python3를 실행하세요.
 
 ```
-~/heads-will-roll$ python main.py
+~/heads-will-roll$ python main.py -m
 ```
 
 처음 실행하는 경우 ChromeDriver를 설치하는 과정이 필요하기 때문에 시간이 소요될 수 있습니다.
@@ -45,7 +45,14 @@ main.py 실행 후 마이너 갤러리 아이디를 입력하고 말머리를 �
 
 작업을 중단하고 싶은 경우 <kbd>Ctrl</kbd>+<kbd>C</kbd>를 입력하세요.
 
+### 포스트락 마이너 갤러리 말머리 복구
+```
+~/heads-will-roll$ python main.py -r
+```
+
+포스트락 마이너 갤러리 말머리 복구 기능을 실행하려면 파라미터 값에 -r을 입력하세요.
 ***
+
 > 입력 예시
 ```
 GALLERYID: postrockgallery
