@@ -129,14 +129,11 @@ class HeadtextChanger:
         self.selectedNo_final = self.selectedNo_init
         self.headtext_init = self.recoverylist[self.selectedNo_init]
         self.headtext_final = self.recoverylist[self.selectedNo_final]
+        self.setdata(self.selectedNo_init, self.selectedNo_final)
 
         # 말머리 이동
         '''
         self.makelist_headtext()
-        self.headtext_init = self.headtext_list[self.selectedNo_init]
-        self.headtextid_init = self.headtextid_list[self.selectedNo_init]
-        self.headtext_final = self.headtext_list[self.selectedNo_final]
-        self.headtextid_final = self.headtextid_list[self.selectedNo_final]
         
         print("다음 중 현재 이동할 글이 존재하는 말머리의 번호를 선택하세요.")
         print(*enumerate(self.headtext_list), sep='\n')
@@ -145,6 +142,11 @@ class HeadtextChanger:
         print("다음 중 글을 이동할 목표 말머리의 번호를 선택하세요.")
         print(*enumerate(self.headtext_list), sep='\n')
         self.selectedNo_final = int(input("입력: "))
+        
+        self.headtext_init = self.headtext_list[self.selectedNo_init]
+        self.headtextid_init = self.headtextid_list[self.selectedNo_init]
+        self.headtext_final = self.headtext_list[self.selectedNo_final]
+        self.headtextid_final = self.headtextid_list[self.selectedNo_final]
         '''
 
         # 응답이 범위 내인지 확인 추가 필요
@@ -163,8 +165,6 @@ class HeadtextChanger:
         self.login(self.identifier, self.password)
 
         # 로그인한 아이디가 권한이 있는지 확인 추가 필요
-
-        self.setdata(self.selectedNo_init, self.selectedNo_final)
 
         while 1:  # 50번마다 목록 갱신을 위한 while문
             self.makelist_post()
