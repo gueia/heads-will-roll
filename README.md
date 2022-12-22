@@ -1,4 +1,6 @@
 # Heads Will Roll: 디시인사이드 말머리 이동 자동화 프로그램
+![greetings](https://github.com/github/docs/actions/workflows/greetings.yml/badge.svg)
+
 Heads Will Roll은 디시인사이드 말머리 이동을 자동화해주는 프로그램입니다. 현재 포스트락 마이너 갤러리에서만 작동합니다.
 
 ## 주의 사항
