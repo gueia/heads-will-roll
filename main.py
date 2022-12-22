@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 # --------------------------------------------------------------------------------- #
 # Heads Will Roll dcinside IMPLEMENTATION
 #
@@ -359,8 +360,9 @@ def chromedriver_update():
         path = os.path.join(os.getcwd(), i)
         shutil.rmtree(path)
     if chrome_latest_ver not in current_list:
+        print("Updating chromedriver...")
         chromedriver_autoinstaller.install()
-        print("updating chromedriver")
+        print("Done!")
     else:
         pass
 
