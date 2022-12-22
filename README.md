@@ -59,4 +59,11 @@ PASSWORD:
 ## 수정&개발 예정 목록
 * [ ] CLI 환경 구현
 * [ ] 말머리 id 직접입력 (삭제된 말머리 복구에 필요)
+* [ ] 예외 처리 개선
+  * [ ] 로그인 실패 시 재시도
+* [ ] 속도 향상
+  * [ ] 로그인 정보 입력을 로그인 페이지에서 기다리기
 * [ ] <s>multiprocessing 병렬 처리</s> (무기한 연기)
+### 버그
+* [ ] 입력 과정에서 나타나는 UnicodeDecodeError: 'utf-8' codec can't decode bytes in position 0-1: invalid continuation byte
+
