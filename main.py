@@ -121,8 +121,7 @@ class HeadtextChanger:
         self.action = ActionChains(self.driver)
         self.count = 0
 
-        # 말머리 복구
-        if p == '-r':
+        if p == '-r':        # 말머리 복구
             self.galleryid = "postrockgallery"
             self.galleryurl = "https://gall.dcinside.com/mgallery/board/lists?id=" + self.galleryid
             self.recoverylist = ['NaN',
@@ -144,8 +143,7 @@ class HeadtextChanger:
             self.headtext_final = self.recoverylist[self.selectedNo_final]
             self.setdata(self.selectedNo_init, self.selectedNo_final)
 
-        # 말머리 이동
-        else:
+        else:        # 말머리 이동
             self.galleryid = input("GALLERYID: ")
             self.galleryurl = "https://gall.dcinside.com/mgallery/board/lists?id=" + self.galleryid
 
