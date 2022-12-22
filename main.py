@@ -95,9 +95,6 @@ class HeadtextChanger:
         self.headtextid_init = ''
         self.headtextid_final = ''
 
-        self.galleryid = input("GALLERYID: ")
-        self.galleryurl = "https://gall.dcinside.com/mgallery/board/lists?id=" + self.galleryid
-
         self.logger = logging.getLogger()
         self.logger.handlers = []
         self.logger.addHandler(logging.StreamHandler())
@@ -106,8 +103,8 @@ class HeadtextChanger:
 
         options = Options()
         options.add_experimental_option("detach", True)
-        options.add_argument("headless")
-        # options.add_extension("./uBOLite_0.1.22.12166.mv3.zip")  # headless와 extension은 양립 불가
+        #options.add_argument("headless")
+        options.add_extension("./uBOLite_0.1.22.12166.mv3.zip")  # headless와 extension은 양립 불가
 
         options.add_argument('user-agent='
                              'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) '
@@ -126,6 +123,8 @@ class HeadtextChanger:
 
         # 말머리 복구
         if p == '-r':
+            self.galleryid = "postrockgallery"
+            self.galleryurl = "https://gall.dcinside.com/mgallery/board/lists?id=" + self.galleryid
             self.recoverylist = ['NaN', 'NaN', '소식', 'NaN', '인증', '음추', '번역', '후기', '탑스터', '자작', 'NaN']
             print("다음 중 복구할 말머리의 번호를 선택하세요.")
             print(*enumerate(self.recoverylist), sep='\n')
@@ -137,6 +136,9 @@ class HeadtextChanger:
 
         # 말머리 이동
         if p == '-m':
+            self.galleryid = input("GALLERYID: ")
+            self.galleryurl = "https://gall.dcinside.com/mgallery/board/lists?id=" + self.galleryid
+
             self.makelist_headtext()
 
             print("다음 중 현재 이동할 글이 존재하는 말머리의 번호를 선택하세요.")
