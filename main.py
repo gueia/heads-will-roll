@@ -136,7 +136,7 @@ class HeadtextChanger:
             self.setdata(self.selectedNo_init, self.selectedNo_final)
 
         # 말머리 이동
-        if p == '-m'
+        if p == '-m':
             self.makelist_headtext()
 
             print("다음 중 현재 이동할 글이 존재하는 말머리의 번호를 선택하세요.")
