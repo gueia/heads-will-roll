@@ -145,7 +145,7 @@ class HeadtextChanger:
             self.setdata(self.selectedNo_init, self.selectedNo_final)
 
         # 말머리 이동
-        if p == '-m':
+        else:
             self.galleryid = input("GALLERYID: ")
             self.galleryurl = "https://gall.dcinside.com/mgallery/board/lists?id=" + self.galleryid
 
