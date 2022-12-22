@@ -37,7 +37,7 @@ Heads Will Roll은 디시인사이드 말머리 이동을 자동적으로 수행
 ***
 ### 말머리 이동
 ```
-~/heads-will-roll$ python main.py -m
+~/heads-will-roll$ python main.py
 ```
 
 처음 실행하는 경우 ChromeDriver를 설치하는 과정이 필요하기 때문에 시간이 소요될 수 있습니다.
