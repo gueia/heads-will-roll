@@ -109,7 +109,7 @@ class HeadtextChanger:
         self.password = getpass.getpass('PASSWORD: ')
 
         self.logger.info(
-            "--------------------------------------------------\n"
+            "----------------------------------------------------\n"
             f"| {time.strftime('%Y-%m-%d %H:%M:%S')} "
             f"| OPERATION "
             f"| STATUS "
