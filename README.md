@@ -4,6 +4,9 @@
 Heads Will Roll은 본래 디시인사이드 말머리 이동을 자동적으로 수행하는 것이 목적인 프로그램이지만, 현재 포스트락 마이너 갤러리 말머리의 복구 기능만 작동하도록 수정한 상태입니다.
 
 ## 설치
+> __Info__
+> 
+> 운영체제가 macOS 또는 Linux인 경우 pip 대신 pip3를 실행하세요.
 ```
 ~$ git clone https://github.com/gueia/heads-will-roll.git
 ~$ cd heads-will-roll
@@ -18,6 +21,11 @@ Heads Will Roll은 본래 디시인사이드 말머리 이동을 자동적으로
 > 이 오류는 계정에 귀속되는 것으로 보아 일종의 차단에 해당하는 것으로 추측됩니다.
 > 
 > 참고로 계정 이미 ERR_300016가 발생하는 경우에는 모바일 환경(m.dcinside.com)에서 로그인한 뒤 PC 버전으로 전환하는 방법으로 우회해서 로그인 가능합니다.
+
+> __Info__
+> 
+> 운영체제가 macOS 또는 Linux인 경우 python 대신 python3를 실행하세요.
+
 ```
 ~/heads-will-roll$ python main.py
 ```
