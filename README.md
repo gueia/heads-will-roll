@@ -16,6 +16,11 @@ Heads Will Roll은 본래 디시인사이드 말머리 이동을 자동적으로
 
 터미널에 상단의 명령어를 순서대로 입력합니다.
 
+### 업데이트
+```
+~/heads-will-roll$ git pull origin main 
+```
+
 ## 사용 방법
 > __Warning__
 > 
