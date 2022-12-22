@@ -52,10 +52,13 @@ from selenium.common.exceptions import (
 )
 import platform
 import getpass
-
+from pyfiglet import Figlet
 
 class HeadtextChanger:
     def __init__(self):
+        f = Figlet(font='lean')
+        print(f.renderText('Heads Will Roll'))
+
         self.post_list = []
         self.headtext_dict = OrderedDict()
 
