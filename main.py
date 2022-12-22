@@ -70,13 +70,11 @@ class HeadtextChanger:
         self.galleryid = input("GALLERYID: ")
         self.galleryurl = "https://gall.dcinside.com/mgallery/board/lists?id=" + self.galleryid
 
-        logging.basicConfig(format='%(message)s')
         self.logger = logging.getLogger()
+        self.logger.handlers = []
+        self.logger.addHandler(logging.StreamHandler())
+        self.logger.addHandler(logging.FileHandler('./test.log'))
         self.logger.setLevel(level=logging.INFO)
-        if not self.logger.handlers:
-            self.logger.addHandler(logging.StreamHandler())
-        # self.logger.addHandler(logging.FileHandler('./test.log'))
-        self.logger.propagate = False
 
         options = Options()
         options.add_experimental_option("detach", True)
