@@ -3,6 +3,10 @@ Heads Will Roll은 디시인사이드 말머리 이동을 자동화해주는 프
 
 ## 사용 방법
 
+  git clone https://github.com/gueia/heads-will-roll.git
+
+  pip install -r requirements.txt
+
 ## 프로젝트 역사
 #### 0.0.1 (2022-12-21)
 * 프로젝트 시작
