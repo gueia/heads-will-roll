@@ -41,6 +41,7 @@
 # End Of Comments
 # --------------------------------------------------------------------------------- #
 
+import sys
 import time
 import logging
 import os
@@ -78,6 +79,8 @@ class HeadtextChanger:
     def __init__(self):
         f = Figlet(font='roman')
         print('\n'+f.renderText('Heads Will Roll.')+'\n')
+
+        p = sys.argv[1]
 
         chromedriver_update()
 
@@ -122,32 +125,32 @@ class HeadtextChanger:
         self.count = 0
 
         # 말머리 복구
-        self.recoverylist = ['NaN', 'NaN', '소식', 'NaN', '인증', '음추', '번역', '후기', '탑스터', '자작', 'NaN']
-        print("다음 중 복구할 말머리의 번호를 선택하세요.")
-        print(*enumerate(self.recoverylist), sep='\n')
-        self.selectedNo_init = int(input("입력: "))
-        self.selectedNo_final = self.selectedNo_init
-        self.headtext_init = self.recoverylist[self.selectedNo_init]
-        self.headtext_final = self.recoverylist[self.selectedNo_final]
-        self.setdata(self.selectedNo_init, self.selectedNo_final)
+        if p == '-r':
+            self.recoverylist = ['NaN', 'NaN', '소식', 'NaN', '인증', '음추', '번역', '후기', '탑스터', '자작', 'NaN']
+            print("다음 중 복구할 말머리의 번호를 선택하세요.")
+            print(*enumerate(self.recoverylist), sep='\n')
+            self.selectedNo_init = int(input("입력: "))
+            self.selectedNo_final = self.selectedNo_init
+            self.headtext_init = self.recoverylist[self.selectedNo_init]
+            self.headtext_final = self.recoverylist[self.selectedNo_final]
+            self.setdata(self.selectedNo_init, self.selectedNo_final)
 
         # 말머리 이동
-        '''
-        self.makelist_headtext()
-        
-        print("다음 중 현재 이동할 글이 존재하는 말머리의 번호를 선택하세요.")
-        print(*enumerate(self.headtext_list), sep='\n')
-        self.selectedNo_init = int(input("입력: "))
+        if p == '-m'
+            self.makelist_headtext()
 
-        print("다음 중 글을 이동할 목표 말머리의 번호를 선택하세요.")
-        print(*enumerate(self.headtext_list), sep='\n')
-        self.selectedNo_final = int(input("입력: "))
-        
-        self.headtext_init = self.headtext_list[self.selectedNo_init]
-        self.headtextid_init = self.headtextid_list[self.selectedNo_init]
-        self.headtext_final = self.headtext_list[self.selectedNo_final]
-        self.headtextid_final = self.headtextid_list[self.selectedNo_final]
-        '''
+            print("다음 중 현재 이동할 글이 존재하는 말머리의 번호를 선택하세요.")
+            print(*enumerate(self.headtext_list), sep='\n')
+            self.selectedNo_init = int(input("입력: "))
+
+            print("다음 중 글을 이동할 목표 말머리의 번호를 선택하세요.")
+            print(*enumerate(self.headtext_list), sep='\n')
+            self.selectedNo_final = int(input("입력: "))
+
+            self.headtext_init = self.headtext_list[self.selectedNo_init]
+            self.headtextid_init = self.headtextid_list[self.selectedNo_init]
+            self.headtext_final = self.headtext_list[self.selectedNo_final]
+            self.headtextid_final = self.headtextid_list[self.selectedNo_final]
 
         # 응답이 범위 내인지 확인 추가 필요
 
