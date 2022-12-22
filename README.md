@@ -55,7 +55,6 @@ main.py 실행 후 마이너 갤러리 아이디를 입력하고 말머리를 �
 
 > 입력 예시
 ```
-GALLERYID: postrockgallery
 다음 중 복구할 말머리의 번호를 선택하세요.
 (0, 'NaN')
 (1, 'NaN')
