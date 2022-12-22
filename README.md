@@ -34,6 +34,7 @@ Heads Will Roll은 디시인사이드 말머리 이동을 자동적으로 수행
 > __Note__
 > 
 > 운영체제가 macOS 또는 Linux인 경우 python 대신 python3를 실행하세요.
+***
 ### 말머리 이동
 ```
 ~/heads-will-roll$ python main.py -m
@@ -44,7 +45,6 @@ Heads Will Roll은 디시인사이드 말머리 이동을 자동적으로 수행
 main.py 실행 후 마이너 갤러리 아이디를 입력하고 말머리를 목록에서 선택한 뒤 로그인하면 됩니다.
 
 작업을 중단하고 싶은 경우 <kbd>Ctrl</kbd>+<kbd>C</kbd>를 입력하세요.
-***
 
 > 입력 예시
 ```
@@ -78,14 +78,13 @@ GALLERYID: postrockgallery
 USERID: gueia
 PASSWORD: 
 ```
-
+***
 ### 포스트락 마이너 갤러리 말머리 복구
 ```
 ~/heads-will-roll$ python main.py -r
 ```
 
 포스트락 마이너 갤러리 말머리 복구 기능을 실행하려면 파라미터 값에 -r을 입력하세요.
-***
 
 > 입력 예시
 ```
