@@ -29,8 +29,8 @@ from collections import OrderedDict
 import chromedriver_autoinstaller
 import shutil
 
-#multi from multiprocessing import Pool
-#multi from pathos.multiprocessing import ProcessPool
+# multi from multiprocessing import Pool
+# multi from pathos.multiprocessing import ProcessPool
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
@@ -52,21 +52,22 @@ from selenium.common.exceptions import (
 import platform
 import getpass
 
+
 class HeadtextChanger:
     def __init__(self):
         self.post_list = []
         self.headtext_dict = OrderedDict()
-        
+
         self.headtext_list = []  # 실제 보이는 말머리 제목  ex) 🍀탑스터
         self.headtext_init = ''
         self.headtext_final = ''
-        
+
         self.headtextid_list = []  # 말머리 id  ex) 170
         self.headtextid_init = ''
         self.headtextid_final = ''
 
         self.galleryid = input("GALLERYID: ")
-        self.galleryurl = "https://gall.dcinside.com/mgallery/board/lists?id="+self.galleryid
+        self.galleryurl = "https://gall.dcinside.com/mgallery/board/lists?id=" + self.galleryid
 
         self.logger = logging.getLogger()
         self.logger.setLevel(level=logging.INFO)
@@ -75,13 +76,13 @@ class HeadtextChanger:
 
         options = Options()
         options.add_experimental_option("detach", True)
-        options.add_argument("headless")
-
+        # options.add_argument("headless")
         options.add_extension("./uBOLite_0.1.22.12166.mv3.zip")  # headless와 extension은 양립 불가
-        # options.add_argument('user-agent='
-        #                     'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) '
-        #                     'AppleWebKit/537.36 (KHTML, like Gecko) '
-        #                     'Chrome/108.0.0.0 Safari/537.36')
+
+        options.add_argument('user-agent='
+                             'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) '
+                             'AppleWebKit/537.36 (KHTML, like Gecko) '
+                             'Chrome/108.0.0.0 Safari/537.36')
 
         caps = DesiredCapabilities().CHROME
         caps["pageLoadStrategy"] = "none"
@@ -109,10 +110,10 @@ class HeadtextChanger:
 
         self.logger.info(
             "--------------------------------------------------\n"
-            f"{time.strftime('%Y-%m-%d %H:%M:%S')} "
+            f"| {time.strftime('%Y-%m-%d %H:%M:%S')} "
             f"| OPERATION "
             f"| STATUS "
-            f"| COUNT "
+            f"| COUNT |"
         )
 
         self.login(self.identifier, self.password)
@@ -135,15 +136,13 @@ class HeadtextChanger:
                 # multi pool.close()
                 # multi pool.join()
                 self.driver.quit()
-                self.logger.info("| "
-                    f"{time.strftime('%Y-%m-%d %H:%M:%S')} "
-                    f"| quit "
-                    f"| DONE "
-                    f"| * |"
-                )
+                self.logger.info(f"| {time.strftime('%Y-%m-%d %H:%M:%S')} "
+                                 f"| quit "
+                                 f"| DONE "
+                                 f"| * |")
                 break
 
-    def setdata(self, selectedNo_init, selectedNo_final): # 말머리를 말머리 ID로
+    def setdata(self, selectedNo_init, selectedNo_final):  # 말머리를 말머리 ID로
         # 원래 말머리
         if selectedNo_init == '소식':
             self.headtextid_init = '130'
@@ -205,7 +204,7 @@ class HeadtextChanger:
 
     def login(self, identifier, password):  # 모바일 환경에서 로그인 시도 (ERR_300016 우회 목적)
         self.driver.get("https://msign.dcinside.com/login"
-                        "?r_url=https%3A%2F%2Fgall.dcinside.com%2Fmgallery%2Fboard%2Flists%3Fid%3D"+self.galleryid)
+                        "?r_url=https%3A%2F%2Fgall.dcinside.com%2Fmgallery%2Fboard%2Flists%3Fid%3D" + self.galleryid)
         elm_id = self.driver.find_element(By.XPATH, '//*[@id="code"]')
         elm_id.click()
         '''
@@ -236,8 +235,7 @@ class HeadtextChanger:
         # self.wait.until(EC.url_to_be(self.galleryurl))
 
         if self.driver.current_url == self.galleryurl:  # 로그인 성공
-            self.logger.info("| "
-                             f"{time.strftime('%Y-%m-%d %H:%M:%S')} "
+            self.logger.info(f"| {time.strftime('%Y-%m-%d %H:%M:%S')} "
                              "| login (mobile) "
                              "| DONE "
                              "| * |")
@@ -245,8 +243,7 @@ class HeadtextChanger:
         else:
             print(self.driver.current_url)
             print(self.galleryurl)
-            self.logger.info("| "
-                             f"{time.strftime('%Y-%m-%d %H:%M:%S')} "
+            self.logger.info(f"| {time.strftime('%Y-%m-%d %H:%M:%S')} "
                              "| login (mobile) "
                              "| ERROR "
                              "| * |")
@@ -310,6 +307,9 @@ class HeadtextChanger:
         except TimeoutException:
             print("관리 권한이 없습니다.")
             raise
+        except UnexpectedAlertPresentException:
+            print("디시인사이드 서버 오류")
+            pass
 
         self.driver.find_element(By.XPATH, f"//li[@data-value='{self.headtextid_final}']").click()
 
@@ -319,14 +319,12 @@ class HeadtextChanger:
         alert.accept()
 
         self.count += 1
-        self.logger.info("| "
-                         f"{time.strftime('%Y-%m-%d %H:%M:%S')} "
+        self.logger.info(f"| {time.strftime('%Y-%m-%d %H:%M:%S')} "
                          f"| https://gall.dcinside.com/m/postrockgallery/{post_num}"
                          f" ({self.selectedNo_init} -> {self.headtext_final}) "
                          # f" ({self.headtext_init} -> {self.headtext_final}) "
                          f"| DONE "
-                         f"| {self.count} |"
-        )
+                         f"| {self.count} |")
         time.sleep(0.5)
 
 
@@ -352,4 +350,4 @@ def chromedriver_update():
 
 if __name__ == '__main__':
     chromedriver_update()
-    hc = HeadtextChanger()
+    HeadtextChanger()
