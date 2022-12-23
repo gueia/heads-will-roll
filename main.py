@@ -347,7 +347,7 @@ class HeadtextChanger:
             self.headtext_list = list(self.headtext_dict.keys())
             self.headtextid_list = list(self.headtext_dict.values())
         except:
-            pass
+            1
 
     def run(self, post_num):
         self.driver.get(f"https://gall.dcinside.com/mgallery/board/view/?id={self.galleryid}&no={post_num}")
