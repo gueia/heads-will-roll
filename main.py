@@ -228,6 +228,8 @@ class HeadtextChanger:
             print('지원하지 않는 말머리 형식입니다.')
             raise
 
+        self.headtextid_final = self.headtextid_init
+
     def login_pc(self, identifier, password):  # PC 환경에서 로그인 시도
         self.driver.get("https://sign.dcinside.com/login"
                         "?s_url=https%3A%2F%2Fgall.dcinside.com%2Fmgallery%2Fboard%2Flists%3Fid%3Dpostrockgallery")
