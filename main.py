@@ -83,7 +83,7 @@ class HeadtextChanger:
         try:
             p = sys.argv[1]
         except IndexError:
-            p = '-r'
+            p = ''
 
         chromedriver_update()
 
