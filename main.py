@@ -106,6 +106,7 @@ class HeadtextChanger:
 
         options = Options()
         options.add_experimental_option("detach", True)
+        options.add_argument("incognito")
         options.add_argument("headless")
         # options.add_extension("./uBOLite_0.1.22.12166.mv3.zip")  # headless와 extension은 양립 불가
 
@@ -183,11 +184,9 @@ class HeadtextChanger:
         # 로그인한 아이디가 권한이 있는지 확인 추가 필요
 
         while 1:  # 50번마다 목록 갱신을 위한 while문
-            caps["pageLoadStrategy"] = "none"
             self.makelist_post()
             # print(self.post_list)
             try:
-                caps["pageLoadStrategy"] = "normal"
                 for postNum in self.post_list:
                     try:
                         self.run(postNum)
