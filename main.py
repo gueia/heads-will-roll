@@ -184,28 +184,30 @@ class HeadtextChanger:
         # 로그인한 아이디가 권한이 있는지 확인 추가 필요
 
         while 1:  # 50번마다 목록 갱신을 위한 while문
-            self.makelist_post()
-            # print(self.post_list)
-            try:
-                for postNum in self.post_list:
-                    try:
-                        self.run(postNum)
-                    except UnexpectedAlertPresentException:
-                        print("디시인사이드 시스템 오류로 작업이 중지되었습니다. 잠시 후 다시 이용해 주세요.")
-                        pass
-                # multi pool = Pool(processes=2)
-                # multi pool = ProcessPool(nodes=2)
-                # multi pool.map(self.run, self.post_list)
-
-            except (KeyboardInterrupt, NoSuchWindowException):
-                # multi pool.close()
-                # multi pool.join()
-                self.driver.quit()
-                self.logger.info(f"| {time.strftime('%Y-%m-%d %H:%M:%S')} "
-                                 f"| quit "
-                                 f"| DONE "
-                                 f"| * |")
+            if self.makelist_post() == 0:
                 break
+            else:
+                # print(self.post_list)
+                try:
+                    for postNum in self.post_list:
+                        try:
+                            self.run(postNum)
+                        except UnexpectedAlertPresentException:
+                            print("디시인사이드 시스템 오류로 작업이 중지되었습니다. 잠시 후 다시 이용해 주세요.")
+                            pass
+                    # multi pool = Pool(processes=2)
+                    # multi pool = ProcessPool(nodes=2)
+                    # multi pool.map(self.run, self.post_list)
+
+                except (KeyboardInterrupt, NoSuchWindowException):
+                    # multi pool.close()
+                    # multi pool.join()
+                    self.driver.quit()
+                    self.logger.info(f"| {time.strftime('%Y-%m-%d %H:%M:%S')} "
+                                     f"| quit "
+                                     f"| DONE "
+                                     f"| * |")
+                    break
 
     def setdata(self, selectedNo_init, selectedNo_final):  # 말머리를 말머리 ID로 (말머리 복구에만 쓰임)
         if selectedNo_init == 2:
@@ -334,6 +336,7 @@ class HeadtextChanger:
             self.post_list.append(tr.find_element(By.CLASS_NAME, 'gall_num').get_attribute("textContent"))
         if not self.post_list:
             print("이동/복구가 완료되었습니다! 🎉")
+            return 0
 
 
     def makelist_headtext(self):
