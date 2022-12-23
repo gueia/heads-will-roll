@@ -187,7 +187,7 @@ class HeadtextChanger:
             if self.makelist_post() == 0:
                 break
             else:
-                # print(self.post_list)
+                self.makelist_post()
                 try:
                     for postNum in self.post_list:
                         try:
