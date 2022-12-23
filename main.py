@@ -332,6 +332,9 @@ class HeadtextChanger:
         self.post_list = []
         for tr in self.driver.find_elements(By.CLASS_NAME, 'us-post'):
             self.post_list.append(tr.find_element(By.CLASS_NAME, 'gall_num').get_attribute("textContent"))
+        if not self.post_list:
+            print("이동/복구가 완료되었습니다! 🎉")
+
 
     def makelist_headtext(self):
         if self.driver.current_url == self.galleryurl:
