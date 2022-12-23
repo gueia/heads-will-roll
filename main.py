@@ -339,15 +339,12 @@ class HeadtextChanger:
         else:
             self.driver.get(self.galleryurl)
 
-        try:
-            for i in self.driver.find_elements(By.XPATH, ".//a[contains(@onclick, 'listSearchHead')]"):
-                headtextid = i.get_attribute('onclick').lstrip('listSearchHead(').rstrip(')')
-                self.headtext_dict[i.get_attribute("textContent")] = headtextid
-            # print(self.headtext_dict)
-            self.headtext_list = list(self.headtext_dict.keys())
-            self.headtextid_list = list(self.headtext_dict.values())
-        except:
-            1
+        for i in self.driver.find_elements(By.XPATH, ".//a[contains(@onclick, 'listSearchHead')]"):
+            headtextid = i.get_attribute('onclick').lstrip('listSearchHead(').rstrip(')')
+            self.headtext_dict[i.get_attribute("textContent")] = headtextid
+        # print(self.headtext_dict)
+        self.headtext_list = list(self.headtext_dict.keys())
+        self.headtextid_list = list(self.headtext_dict.values())
 
     def run(self, post_num):
         self.driver.get(f"https://gall.dcinside.com/mgallery/board/view/?id={self.galleryid}&no={post_num}")
