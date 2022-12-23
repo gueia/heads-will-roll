@@ -83,7 +83,7 @@ class HeadtextChanger:
         try:
             p = sys.argv[1]
         except IndexError:
-            p = ''
+            p = '-r'
 
         chromedriver_update()
 
@@ -208,27 +208,31 @@ class HeadtextChanger:
                                  f"| * |")
                 break
 
-    def setdata(self, selectedNo_init, selectedNo_final):  # 말머리를 말머리 ID로
-        # 원래 말머리
+    def setdata(self, selectedNo_init, selectedNo_final):  # 말머리를 말머리 ID로 (말머리 복구에만 쓰임)
         if selectedNo_init == 2:
             self.headtextid_init = '130'    # 소식
+            self.headtextid_final = '230'
         elif selectedNo_init == 4:
             self.headtextid_init = '100'    # 인증
+            self.headtextid_final = '170'
         elif selectedNo_init == 5:
             self.headtextid_init = '40'     # 음추
+            self.headtextid_final = '200'
         elif selectedNo_init == 6:
             self.headtextid_init = '110'    # 번역
+            self.headtextid_final = '210'
         elif selectedNo_init == 7:
             self.headtextid_init = '120'    # 후기
+            self.headtextid_final = '220'
         elif selectedNo_init == 8:
             self.headtextid_init = '90'     # 탑스터
+            self.headtextid_final = '180'
         elif selectedNo_init == 9:
             self.headtextid_init = '140'    # 자작
+            self.headtextid_final = '190'
         else:
             print('지원하지 않는 말머리 형식입니다.')
             raise
-
-        self.headtextid_final = self.headtextid_init
 
     def login_pc(self, identifier, password):  # PC 환경에서 로그인 시도
         self.driver.get("https://sign.dcinside.com/login"
