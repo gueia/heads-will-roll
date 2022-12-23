@@ -80,7 +80,10 @@ class HeadtextChanger:
         f = Figlet(font='roman')
         print('\n'+f.renderText('Heads Will Roll.')+'\n')
 
-        p = sys.argv[1]
+        try:
+            p = sys.argv[1]
+        except IndexError:
+            p = ''
 
         chromedriver_update()
 
