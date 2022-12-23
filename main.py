@@ -328,13 +328,10 @@ class HeadtextChanger:
             time.sleep(1)
 
     def makelist_post(self):
-        try:
-            self.driver.get(f"{self.galleryurl}&search_head={self.headtextid_init}")
-            self.post_list = []
-            for tr in self.driver.find_elements(By.CLASS_NAME, 'us-post'):
-                self.post_list.append(tr.find_element(By.CLASS_NAME, 'gall_num').get_attribute("textContent"))
-        except:
-            pass
+        self.driver.get(f"{self.galleryurl}&search_head={self.headtextid_init}")
+        self.post_list = []
+        for tr in self.driver.find_elements(By.CLASS_NAME, 'us-post'):
+            self.post_list.append(tr.find_element(By.CLASS_NAME, 'gall_num').get_attribute("textContent"))
 
     def makelist_headtext(self):
         if self.driver.current_url == self.galleryurl:
