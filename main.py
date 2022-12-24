@@ -217,22 +217,22 @@ class HeadtextChanger:
             self.headtextid_init = '130'    # 소식
             self.headtextid_final = '230'
         elif selectedNo_init == 4:
-            self.headtextid_init = '100'    # 인증
+            self.headtextid_init = '100'    # 인증 x
             self.headtextid_final = '170'
         elif selectedNo_init == 5:
-            self.headtextid_init = '40'     # 음추
+            self.headtextid_init = '40'     # 음추 x
             self.headtextid_final = '200'
         elif selectedNo_init == 6:
-            self.headtextid_init = '110'    # 번역
+            self.headtextid_init = '110'    # 번역 완료
             self.headtextid_final = '210'
         elif selectedNo_init == 7:
-            self.headtextid_init = '120'    # 후기
+            self.headtextid_init = '120'    # 후기 진행중
             self.headtextid_final = '220'
         elif selectedNo_init == 8:
-            self.headtextid_init = '90'     # 탑스터
+            self.headtextid_init = '90'     # 탑스터 x
             self.headtextid_final = '180'
         elif selectedNo_init == 9:
-            self.headtextid_init = '140'    # 자작
+            self.headtextid_init = '140'    # 자작 완료
             self.headtextid_final = '190'
         else:
             print('지원하지 않는 말머리 형식입니다.')
