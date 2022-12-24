@@ -388,8 +388,7 @@ class HeadtextChanger:
         self.count += 1
         self.logger.info(f"| {time.strftime('%Y-%m-%d %H:%M:%S')} "
                          f"| https://gall.dcinside.com/m/postrockgallery/{post_num}"
-                         f" ({self.selectedNo_init} -> {self.headtext_final}) "
-                         # f" ({self.headtext_init} -> {self.headtext_final}) "
+                         f" ({self.headtext_init} -> {self.headtext_final}) "
                          f"| DONE "
                          f"| {self.count} |")
         time.sleep(0.5)
