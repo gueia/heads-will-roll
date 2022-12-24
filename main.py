@@ -137,32 +137,36 @@ class HeadtextChanger:
             self.headtextid_init = self.headtextid_list[self.selectedNo_init]
             self.headtext_final = self.headtext_list[self.selectedNo_final]
             self.headtextid_final = self.headtextid_list[self.selectedNo_final]
-
-        elif '-r' in sys.argv:        # 말머리 복구
-            self.galleryid = "postrockgallery"
-            self.galleryurl = "https://gall.dcinside.com/mgallery/board/lists?id=" + self.galleryid
-            self.recoverylist = ['NaN',
-                                 'NaN',
-                                 '🔔소식',
-                                 'NaN',
-                                 '💿인증',
-                                 '🎵음추',
-                                 '🌐번역',
-                                 '📖후기',
-                                 '🍀탑스터',
-                                 '🎸자작',
-                                 'NaN']
-            print("다음 중 복구할 말머리의 번호를 선택하세요.")
-            print(*enumerate(self.recoverylist), sep='\n')
-            self.selectedNo_init = int(input("입력: "))
-            self.selectedNo_final = self.selectedNo_init
-            self.headtext_init = self.recoverylist[self.selectedNo_init]
-            self.headtext_final = self.recoverylist[self.selectedNo_final]
-            self.setdata(self.selectedNo_init, self.selectedNo_final)
-
-        if '-debug' in sys.argv:
-            self.logger.setLevel(level=logging.DEBUG)
         else:
+            if '-r' in sys.argv:        # 말머리 복구
+                self.galleryid = "postrockgallery"
+                self.galleryurl = "https://gall.dcinside.com/mgallery/board/lists?id=" + self.galleryid
+                self.recoverylist = ['NaN',
+                                     'NaN',
+                                     '🔔소식',
+                                     'NaN',
+                                     '💿인증',
+                                     '🎵음추',
+                                     '🌐번역',
+                                     '📖후기',
+                                     '🍀탑스터',
+                                     '🎸자작',
+                                     'NaN']
+                print("다음 중 복구할 말머리의 번호를 선택하세요.")
+                print(*enumerate(self.recoverylist), sep='\n')
+                self.selectedNo_init = int(input("입력: "))
+                self.selectedNo_final = self.selectedNo_init
+                self.headtext_init = self.recoverylist[self.selectedNo_init]
+                self.headtext_final = self.recoverylist[self.selectedNo_final]
+                self.setdata(self.selectedNo_init, self.selectedNo_final)
+
+            elif '-debug' in sys.argv:
+                self.logger.setLevel(level=logging.DEBUG)
+
+            else:
+                print('Need help? Visit https://github.com/gueia/heads-will-roll')
+
+        if '-debug' not in sys.argv:
             self.logger.setLevel(level=logging.INFO)
 
         # 응답이 범위 내인지 확인 추가 필요
