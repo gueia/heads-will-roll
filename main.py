@@ -398,7 +398,6 @@ class HeadtextChanger:
 def chromedriver_update():
     print("Checking for ChromeDriver updates...")
     chromedriver_autoinstaller.install()
-    print("Done!")
 
 
 if __name__ == '__main__':
