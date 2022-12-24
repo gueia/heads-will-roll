@@ -80,11 +80,6 @@ class HeadtextChanger:
         f = Figlet(font='roman')
         print('\n'+f.renderText('Heads Will Roll.')+'\n')
 
-        try:
-            p = sys.argv[1]
-        except IndexError:
-            p = ''
-
         chromedriver_update()
 
         self.post_list = []
@@ -102,7 +97,6 @@ class HeadtextChanger:
         self.logger.handlers = []
         self.logger.addHandler(logging.StreamHandler())
         self.logger.addHandler(logging.FileHandler('./test.log'))
-        self.logger.setLevel(level=logging.INFO)
 
         options = Options()
         options.add_experimental_option("detach", True)
@@ -125,7 +119,26 @@ class HeadtextChanger:
         self.action = ActionChains(self.driver)
         self.count = 0
 
-        if p == '-r':        # 말머리 복구
+        if not sys.argv:        # 말머리 이동
+            self.galleryid = input("GALLERYID: ")
+            self.galleryurl = "https://gall.dcinside.com/mgallery/board/lists?id=" + self.galleryid
+
+            self.makelist_headtext()
+
+            print("다음 중 현재 이동할 글이 존재하는 말머리의 번호를 선택하세요.")
+            print(*enumerate(self.headtext_list), sep='\n')
+            self.selectedNo_init = int(input("입력: "))
+
+            print("다음 중 글을 이동할 목표 말머리의 번호를 선택하세요.")
+            print(*enumerate(self.headtext_list), sep='\n')
+            self.selectedNo_final = int(input("입력: "))
+
+            self.headtext_init = self.headtext_list[self.selectedNo_init]
+            self.headtextid_init = self.headtextid_list[self.selectedNo_init]
+            self.headtext_final = self.headtext_list[self.selectedNo_final]
+            self.headtextid_final = self.headtextid_list[self.selectedNo_final]
+
+        elif '-r' in sys.argv:        # 말머리 복구
             self.galleryid = "postrockgallery"
             self.galleryurl = "https://gall.dcinside.com/mgallery/board/lists?id=" + self.galleryid
             self.recoverylist = ['NaN',
@@ -147,24 +160,10 @@ class HeadtextChanger:
             self.headtext_final = self.recoverylist[self.selectedNo_final]
             self.setdata(self.selectedNo_init, self.selectedNo_final)
 
-        else:        # 말머리 이동
-            self.galleryid = input("GALLERYID: ")
-            self.galleryurl = "https://gall.dcinside.com/mgallery/board/lists?id=" + self.galleryid
-
-            self.makelist_headtext()
-
-            print("다음 중 현재 이동할 글이 존재하는 말머리의 번호를 선택하세요.")
-            print(*enumerate(self.headtext_list), sep='\n')
-            self.selectedNo_init = int(input("입력: "))
-
-            print("다음 중 글을 이동할 목표 말머리의 번호를 선택하세요.")
-            print(*enumerate(self.headtext_list), sep='\n')
-            self.selectedNo_final = int(input("입력: "))
-
-            self.headtext_init = self.headtext_list[self.selectedNo_init]
-            self.headtextid_init = self.headtextid_list[self.selectedNo_init]
-            self.headtext_final = self.headtext_list[self.selectedNo_final]
-            self.headtextid_final = self.headtextid_list[self.selectedNo_final]
+        if '-debug' in sys.argv:
+            self.logger.setLevel(level=logging.DEBUG)
+        else:
+            self.logger.setLevel(level=logging.INFO)
 
         # 응답이 범위 내인지 확인 추가 필요
 
