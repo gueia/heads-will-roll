@@ -226,7 +226,7 @@ class HeadtextChanger:
             self.headtextid_init = '110'    # 번역 완료
             self.headtextid_final = '210'
         elif selectedNo_init == 7:
-            self.headtextid_init = '120'    # 후기 진행중
+            self.headtextid_init = '120'    # 후기 완료
             self.headtextid_final = '220'
         elif selectedNo_init == 8:
             self.headtextid_init = '90'     # 탑스터 x
